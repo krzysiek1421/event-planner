@@ -1,4 +1,4 @@
-package com.krzysiek1421.eventplanner.Model;
+package com.krzysiek1421.eventplanner.model;
 
 import jakarta.persistence.*;
 
@@ -10,6 +10,14 @@ public class Category {
     private int id;
 
     private String categoryName;
+
+    public Category(String categoryName){
+        this.categoryName = categoryName;
+    }
+
+    public Category() {
+
+    }
 
     public int getId() {
         return id;

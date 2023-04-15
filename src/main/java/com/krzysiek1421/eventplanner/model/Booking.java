@@ -1,4 +1,4 @@
-package com.krzysiek1421.eventplanner.Model;
+package com.krzysiek1421.eventplanner.model;
 
 import jakarta.persistence.*;
 

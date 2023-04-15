@@ -1,9 +1,8 @@
-package com.krzysiek1421.eventplanner.Model;
+package com.krzysiek1421.eventplanner.model;
 
 import com.krzysiek1421.eventplanner.util.EventStatus;
 import jakarta.persistence.*;
 
-import java.util.Collection;
 import java.util.Date;
 
 @Entity
@@ -14,7 +13,6 @@ public class Event {
     private int id;
     @Enumerated(EnumType.STRING)
     private EventStatus status;
-
     private Date date;
     private String timeline;
 

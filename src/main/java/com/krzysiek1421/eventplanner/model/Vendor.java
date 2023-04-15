@@ -1,4 +1,4 @@
-package com.krzysiek1421.eventplanner.Model;
+package com.krzysiek1421.eventplanner.model;
 
 import jakarta.persistence.*;
 
@@ -19,7 +19,7 @@ public class Vendor {
     )
     private Set<Event> events;
 
-    @OneToMany(mappedBy = "booking")
+    @OneToMany
     private Set<Booking> bookings;
 
     @ManyToOne

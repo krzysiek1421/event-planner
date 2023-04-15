@@ -1,4 +1,4 @@
-package com.krzysiek1421.eventplanner.Model;
+package com.krzysiek1421.eventplanner.model;
 
 import jakarta.persistence.*;
 
@@ -10,6 +10,14 @@ public class ItemQuantity {
     private int id;
 
     private int quantity;
+
+    ItemQuantity(int quantity) {
+    this.quantity = quantity;
+    }
+
+    public ItemQuantity() {
+
+    }
 
     public int getId() {
         return id;

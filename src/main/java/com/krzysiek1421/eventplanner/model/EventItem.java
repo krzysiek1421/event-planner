@@ -1,4 +1,4 @@
-package com.krzysiek1421.eventplanner.Model;
+package com.krzysiek1421.eventplanner.model;
 
 import jakarta.persistence.*;
 
@@ -11,7 +11,7 @@ public class EventItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "item_quantity_id")
     private ItemQuantity itemQuantity;
 
@@ -23,15 +23,37 @@ public class EventItem {
     )
     private Set<Event> events;
 
-    @OneToMany(mappedBy = "booking")
+    @OneToMany
     @JoinColumn(name = "booking_id")
     private Set<Booking> booking;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
     private Category category;
 
     private String itemName;
+
+    EventItem(int itemQuantity, String category, String itemName){
+    this.itemQuantity = new ItemQuantity(itemQuantity);
+    this.category = new Category(category);
+    this.itemName = itemName;
+    }
+
+    public EventItem() {
+
+    }
+
+    @Override
+    public String toString(){
+        return "EventItem{" +
+                "id=" + id +
+                ", itemQuantity=" + itemQuantity +
+                ", events=" + events +
+                ", booking=" + booking +
+                ", category=" + category +
+                ", itemName='" + itemName + '\'' +
+                '}';
+    }
 
     public int getId() {
         return id;
